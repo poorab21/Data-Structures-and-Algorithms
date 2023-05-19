@@ -14,12 +14,10 @@ void InsertNode(int data)
 	if(root==NULL)
 	{
 		root=temp;
-		root->left=NULL;
-		root->right=NULL;
 	}
 	else
 	{
-		BST *z=root;
+	 BST *z=root;
 		while(1)
 		{
 			if(data<z->data && z->left==NULL)
@@ -39,6 +37,10 @@ void InsertNode(int data)
 			else if(data>z->data && z->right != NULL)
 			{
 				z=z->right;
+			}
+			else if(data==z->data)
+			{
+				continue;
 			}
 		}
 	}
@@ -81,7 +83,6 @@ int main()
 	{
 		InsertNode(arr[i]);
 	}
-	std::cout<<std::endl;
 	std::cout<<"Tree Level Order Traversal"<<std::endl;
 	LevelOrder();
 }
